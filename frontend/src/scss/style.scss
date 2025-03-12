@@ -1,0 +1,30 @@
+@use 'custom';
+
+
+//IMORTING COMPONENTS
+@use './components/buttons';
+@use './components/select';
+@use './components/animations';
+@use './components/mixins';
+@use './components/header';
+@use './components/dropdown';
+@use './components/mainbanner';
+@use './components/card';
+@use './components/marquee';
+@use './components/breadcrumb';
+@use './components/footer';
+@use './components/discountbanner';
+@use './components/pagination';
+@use './components/searchbar';
+@use './components/form';
+@use './components/reviewpopup';
+@use './components/popupalerts';
+@use './components/basiccard';
+@use './components/filtersidebar';
+@use './components/swiper';
+@use './components/spinner';
+
+//IMPORTING PAGES
+@use './pages/ui/home';
+@use './pages/ui/productdetail';
+@use './pages/ui/signupform';

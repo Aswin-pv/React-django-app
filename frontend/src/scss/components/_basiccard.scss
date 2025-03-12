@@ -1,0 +1,23 @@
+@use '../custom'  as *;
+
+.basic-card{
+    padding: 1rem;
+    background-color: $black;
+  
+    // Image styles
+    img {
+      height: 300px;
+      width: 100%;
+      background-color: $secondary;
+      
+    }
+
+    .basic-card-body {
+        .basic-card-title {
+          color: $white;
+          text-transform: uppercase;
+          font-weight: 800;
+        }
+    
+      }
+}

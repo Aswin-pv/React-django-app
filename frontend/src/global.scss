@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+body {
+    font-family: "Rubik", sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    padding-top: 5rem;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: red rgb(42, 42, 42);
+}
+a {
+    text-decoration: none;
+}
+
+@media (max-width: 575.98px) {
+    html {
+        scrollbar-width: none;
+    }
+}

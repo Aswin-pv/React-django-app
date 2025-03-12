@@ -1,0 +1,36 @@
+@use '../custom' as *;
+
+
+footer {
+  background: {
+    image: url('../../assets/images/section_bg03.png');
+    size: cover;
+    repeat: no-repeat;
+    position: center;
+    attachment: fixed;
+  }
+}
+
+.single-footer-caption {
+  ul {
+    li {
+      list-style-type: none;
+      padding-top: 1rem;
+
+      .link {
+        text-decoration: none;
+        color: $gray-600;
+
+        &:hover {
+          color: $gray-500;
+        }
+      }
+    }
+  }
+
+  .footer-social {
+    a {
+      margin-right: 1rem;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+
+// Main header styles
+.main-header-bg {
+  @include gradient;
+
+  li {
+    padding: 0 0.7rem;
+  }
+}
+
+.main-header {
+  li {
+    padding: 0 0.7rem;
+  }
+}
+
+
+.navbar-background{
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+// Small screen navbar dropdown styles
+.navbar-collapse {
+  @include media-breakpoint-down(lg) {
+    @include gradient;
+    &{
+      position: absolute;
+    max-width: 100%;
+    right: 0;
+    left: 0;
+    top: 4rem;
+    margin: 1.9rem;
+    padding: 1rem;
+    font-size: 0.8rem;
+    }
+    
+  }
+}
+  

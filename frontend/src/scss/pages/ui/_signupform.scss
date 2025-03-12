@@ -1,0 +1,11 @@
+@use '../../custom' as *;
+
+.form-card{
+    width: 100%;
+    background-color: $secondary;
+    padding: 2.5rem;
+
+    .form-card-description{
+        color: $gray-600;
+    }
+}

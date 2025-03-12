@@ -1,0 +1,17 @@
+@use '../custom'  as *;
+@use '../components/mixins' as *;
+
+.filter{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: end;
+
+    .form-select{
+        width: 100px;
+        color: #ffff;
+        font-size: $mini-font;
+        cursor: pointer;
+   
+    }
+}

@@ -1,0 +1,20 @@
+@use '../custom' as *;
+
+
+#sign-up{
+    form{
+        .invalid-feedback{
+            font-size: $mini-font;
+        }
+        .errors{
+            font-size: $mini-font;
+            color: $red;
+        }
+        .form-changer{
+            span{
+                text-transform: uppercase;
+                font-size: $font-size-sm;
+            }
+        }
+    }
+}

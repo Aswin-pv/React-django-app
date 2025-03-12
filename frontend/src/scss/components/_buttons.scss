@@ -1,0 +1,14 @@
+@use '../custom'  as *;
+
+.btn-inverse-info {
+    & {
+      background-color: rgba(252, 66, 74, 0.2);
+      background-image: none;
+      color: $primary;
+      text-transform: uppercase;
+    }
+  
+    &:hover {
+      color: $white;
+    }
+}

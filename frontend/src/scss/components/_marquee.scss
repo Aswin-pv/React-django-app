@@ -1,0 +1,19 @@
+@use '../custom' as *;
+
+.marquee-container {
+  background-color: $secondary;
+  padding: 2.2rem 0 2rem 0;
+
+  &--text1 {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 3rem;
+  }
+
+  &--text2 {
+    @extend .marquee-container--text1; // Extend styles from text1
+    color: $primary;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px;
+  }
+}

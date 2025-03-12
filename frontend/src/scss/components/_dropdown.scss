@@ -1,0 +1,28 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+
+// Dropdown menu in header
+.dropdown-menu {
+    @include gradient;
+  
+    li {
+      @include media-breakpoint-down(lg) {
+        font-size: 0.8rem;
+      }
+  
+      &:hover {
+        background-color: transparent;
+  
+        .dropdown-item {
+          background-color: transparent;
+          color: $white;
+        }
+      }
+  
+      .dropdown-item {
+        background-color: transparent;
+        color: $white;
+      }
+    }
+  }
+

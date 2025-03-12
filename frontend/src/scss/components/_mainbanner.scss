@@ -1,0 +1,39 @@
+@use "../custom" as *;
+@use '../components/mixins' as *;
+
+// Main banner section
+.main-banner {
+    .bannerSection {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .bg-holder {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: {
+
+            image: url("../../assets/images/MainBanner.png");
+            size: cover;
+            position: center;
+            
+        }
+        z-index: -1;
+
+    }
+
+    .banner-buttons{
+
+      a{
+        @include media-breakpoint-down(sm){
+          @include mobile-button
+          
+
+        }
+      }
+      
+    }
+}

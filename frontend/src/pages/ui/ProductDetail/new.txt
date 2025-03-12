@@ -1,0 +1,275 @@
+<Layout>
+            <section className="container">
+                <div className="row mt-3 pt-5">
+                    {/* breadcrumb */}
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item">
+                                <Link to="/">Home</Link>
+                            </li>
+                            <li className="breadcrumb-item">
+                                <Link to="/">Category</Link>
+                            </li>
+                            <li className="breadcrumb-item">
+                                <Link to="/">Category</Link>
+                            </li>
+                            <li className="breadcrumb-item active" aria-current="page">
+                                {/* {currentProduct.title} */}sdaf
+                            </li>
+                        </ol>
+                    </nav>
+                    {/* end of breadcrumb */}
+                </div>
+                <div className="row my-3 py-3">
+                    {/* product image slider */}
+                    <div className="col-4">
+                        <div className="ecommerce-gallery">
+                            <div className="row py-3">
+                                <div className="col-12 mb-1">
+                                    <div className="">
+                                        {selectedImage && (
+                                            <ReactImageMagnify
+                                                {...{
+                                                    smallImage: {
+                                                        alt: "Wristwatch by Ted Baker London",
+                                                        isFluidWidth: true,
+                                                        src: selectedImage.image,
+                                                    },
+                                                    largeImage: {
+                                                        src: selectedImage.image,
+                                                        width: 1200,
+                                                        height: 1800,
+                                                    },
+                                                }}
+                                            />
+                                        )}
+                                        {!setSelectedImage && <p>no image</p>}
+                                    </div>
+                                </div>
+                                {productImages.map((images, index) => (
+                                    <div className="col-3 mt-4" key={index}>
+                                        <img
+                                            style={{ border: selectedImage?.image === images.image ? "2px solid red" : "" }}
+                                            src={images.image}
+                                            alt={`Gallery ${index + 1}`}
+                                            className="active w-100 p-2"
+                                            onClick={() => setSelectedImage(images)}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    {/* end of product image slider */}
+                    {/* product details section */}
+                    <div className="col-8 pt-5">
+                        {/* <h3 className="mb-1">{currentProduct.title}</h3> */}
+                        <span className="pe-2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span>5</span>
+                        <p className="text-warning mt-3">{currentProduct.detail}</p>
+                        {currency.currencyValue !== "usd" ? (
+                            <>
+                                {currentProduct.discount_percentage ? (
+                                    <>
+                                        <h5 className="product-card-price mt-4 mb-3">
+                                            <strike className="text-white me-3">₹ {currentProduct.price}</strike> ₹{" "}
+                                            {currentProduct.discounted_price_inr}
+                                        </h5>
+                                        <span className="text-primary">- {currentProduct.discount_percentage} %</span>
+                                    </>
+                                ) : (
+                                    <h5 className="product-card-price mt-4 mb-3">₹ {currentProduct.price}</h5>
+                                )}
+                            </>
+                        ) : (
+                            <>
+                                {currentProduct.discount_percentage ? (
+                                    <>
+                                        <h5 className="product-card-price mt-4 mb-3">
+                                            <strike className="text-white me-3">$ {currentProduct.usd_price}</strike> ${" "}
+                                            {currentProduct.discounted_price_usd}
+                                        </h5>
+                                        <span className="text-primary">- {currentProduct.discount_percentage} %</span>
+                                    </>
+                                ) : (
+                                    <h5 className="product-card-price mt-4 mb-3">$ {currentProduct.usd_price}</h5>
+                                )}
+                            </>
+                        )}
+                        <p className="mt-3">
+                            {/* if the cartButton status is false which means the product is not added to cart*/}
+                            {!cartButtonClickStatus && (
+                                <button
+                                    title="Add to cart"
+                                    type="button"
+                                    onClick={cartAddButtonHandler}
+                                    className="btn btn-outline-primary"
+                                >
+                                    <i className="fa-solid fa-cart-arrow-down"></i> Add to Cart
+                                </button>
+                            )}
+                            {/* if the cartButton status is true which means the currentProduct is already present in cart */}
+                            {cartButtonClickStatus && (
+                                <button
+                                    title="remove from cart"
+                                    type="button"
+                                    onClick={cartRemoveButtonHandler}
+                                    className="btn btn-outline-primary"
+                                >
+                                    <i className="fa-solid fa-cart-arrow-down"></i> Remove from Cart
+                                </button>
+                            )}
+
+                            <button title="Buy now" className="btn btn-outline-light ms-2">
+                                <i className="fa-solid fa-cart-arrow-down"></i> Buy Now
+                            </button>
+                            {user === "customer" && !productInWishlist && (
+                                <button title="Add to Wishlist" onClick={saveInWishlist} className="btn btn btn-sm ms-1">
+                                    <i className="fa-solid fa-heart"></i> Wishlist
+                                </button>
+                            )}
+                            {/* {(user === "" || productInWishlist) && (
+                                <button title="Add to Wishlist" className="btn btn-danger btn-sm ms-1 disabled">
+                                    <i className="fa-solid fa-heart"></i> Wishlist
+                                </button>
+                            )} */}
+                        </p>
+                    </div>
+                    {/* end of product detail */}
+                </div>
+                <div className="row">
+                    <h5 className="mb-3">About this item</h5>
+                    <dl className="ms-3">
+                        <dl>
+                            <b>brand</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; item
+                        </dl>
+                        <dl>
+                            <b>weight</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; item
+                        </dl>
+                        <dl>
+                            <b>dosage</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; item
+                        </dl>
+                    </dl>
+                </div>
+
+                <div className="row">
+                    <h3>Related currentProduct</h3>
+                    {/* Related currentProduct */}
+                    {relatedProduct.length > 0 && (
+                        <>
+                            <Swiper
+                                modules={[Navigation, Pagination, A11y]}
+                                spaceBetween={20}
+                                slidesPerView="auto"
+                                pagination={{ clickable: true }}
+                                breakpoints={{
+                                    // when window width is >= 768px
+                                    768: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 20,
+                                    },
+                                    // when window width is >= 992px
+                                    992: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 30,
+                                    },
+                                    // when window width is >= 1400px
+                                    1400: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 30,
+                                    },
+                                }}
+                            >
+                                {relatedProduct.map((product) => (
+                                    <SwiperSlide key={product.id}>
+                                        <SingleProduct product={product} />
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </>
+                    )}
+                </div>
+
+                {/* Related currentProduct end */}
+                <div className="row">
+                    <div className="review p-3">
+                        <h3>Reviews and rating</h3>
+                        <div className="p-4">
+                            <div className="overall bg-secondary p-3">
+                                <div className="row">
+                                    <div className="col-lg-4">
+                                        <p>Total reviews</p>
+                                        <span>10.1 K</span>
+
+                                        <p className="text-primary">Total number of reviews</p>
+                                    </div>
+                                    <div className="col-lg-4">
+                                        <p>Average rating</p>
+                                        <span className="rating">
+                                            <i className="fa fa-star" />
+                                        </span>
+                                        <p className="text-primary">Total number of reviews</p>
+                                    </div>
+                                    <div className="col-lg-4">
+                                        <p>Average rating</p>
+                                        <span className="rating">
+                                            <i className="fa fa-star" />
+                                            <i className="fa fa-star" />
+                                            <i className="fa fa-star" />
+                                        </span>
+                                        <p className="text-primary">Total number of reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="review p-3">
+                                <div className="row">
+                                    <div className="text-info d-flex justify-content-between">
+                                        <p>username</p>
+                                        <p>07-05-21</p>
+                                    </div>
+                                    <span>
+                                        <i className="fa fa-star" />
+                                        <i className="fa fa-star" />
+                                        <i className="fa fa-star" />
+                                        <i className="fa fa-star" />
+                                    </span>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates harum est
+                                        commodi laborum illum consequatur fugit saepe quam totam vero!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="post-review d-flex justify-content-end">
+                            <button className="btn btn-primary btn-sm">view More</button>
+                            <button onClick={() => dispatch(changeModal())} className="btn btn-primary btn-sm">
+                                Add review
+                            </button>
+                        </div>
+                        {showModal && <ReviewPopup product_id={product_id} />}
+                    </div>
+                </div>
+            </section>
+        </Layout>
+
+
+
+
+
+         // Check if it's a single product or list of products
+            if (action.payload.id) {
+                // If it's a single product
+                state.currentProduct = action.payload;
+            
+            } else {
+                // If it's a list of products
+                state.products = action.payload.results;
+                state.totalResults = action.payload.count;
+                
+            }

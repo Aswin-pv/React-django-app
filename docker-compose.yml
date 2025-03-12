@@ -1,0 +1,13 @@
+services:
+  frontend:
+    build:
+      context: ./frontend  # Ensures Dockerfile is used correctly
+      dockerfile: Dockerfile.frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app  # Mount frontend directory only, NOT the entire project(# Syncs local ./frontend folder with /app inside the container)
+      - /app/node_modules  # Prevents node_modules from being overwritten
+    stdin_open: true
+    tty: true

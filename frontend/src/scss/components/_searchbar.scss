@@ -1,0 +1,43 @@
+@use "../custom" as *;
+@use '../components/mixins' as *;
+
+.searchbar-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: fixed;
+    right:  2rem;
+    padding: 2rem 0 0 0;
+    z-index: 2;
+
+    .searchbar {
+        height: 3.75rem;
+        background-color: $dark-grey;
+        border-radius: 30px;
+        padding: 10px;
+        display: flex;
+
+        .search-input {
+            width: 400px;
+            color: white;
+            background-color: $dark-grey;
+            caret-color: red;
+            padding: 0 10px;
+            outline: none;
+            border: none;
+        }
+
+        .search_icon {
+            height: 40px;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: #e74c3c;
+            text-decoration: none;
+            background: #ffffff;
+            float: right;
+        }
+    }
+}

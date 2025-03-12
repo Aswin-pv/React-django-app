@@ -1,0 +1,23 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+
+// Currency switcher
+.currency-switch {
+  @include media-breakpoint-down(lg) {
+    display: none;
+  }
+
+  select {
+    cursor: pointer;
+    border: none;
+    background-color: $red;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 0.4rem 0.3rem;
+    color: $white;
+
+    &:hover {
+      background-color: $hover-red;
+    }
+  }
+}

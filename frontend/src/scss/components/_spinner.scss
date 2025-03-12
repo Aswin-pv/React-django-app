@@ -1,0 +1,15 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+
+.loading-spinner{
+
+    padding: 5rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    .spinner-grow{
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+}

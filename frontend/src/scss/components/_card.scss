@@ -1,0 +1,76 @@
+@use '../custom'  as *;
+@use '../components/mixins' as *;
+
+.product-card {
+    width: 300px;
+    padding: 1rem;
+    background-color: $black;
+    margin-bottom: 1rem;
+
+    img {
+        height: 300px;
+        width: 100%;
+        background-color: $secondary;
+    }
+    
+
+    .product-card-body {
+        .product-card-title {
+            color: $white;
+            text-transform: uppercase;
+            font-weight: 800;
+            width: 100%;
+            overflow:hidden; 
+            white-space:nowrap; 
+            text-overflow: ellipsis;
+        }
+    }
+
+    .product-card-price {
+        text-transform: uppercase;
+        color: $primary;
+    }
+
+    .badge {
+        padding: 0.5rem;
+        position: relative;
+        top: 2.5rem;
+        left: 1rem;
+        z-index: 1;
+        border: 1px solid $white;
+        color: $primary;
+        background-color: transparent;
+    }
+
+    .badge2 {
+        @include gradient;
+        padding: 0.3rem;
+        position: relative;
+        top: 2.5rem;
+        right: 1rem;
+        z-index: 1;
+        border: 1px solid $primary;
+        color: $white;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .product-card {
+        width: 250px;
+        padding: 0.5rem;
+        img {
+            height: 260px;
+        }
+}
+
+@media (max-width: 576px) {
+    
+}
+    .badge, .badge2 {
+        top: 1rem;
+        left: 0.5rem;
+    }
+}
+

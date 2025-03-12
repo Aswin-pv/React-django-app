@@ -1,0 +1,14 @@
+@use '../custom' as *;
+
+
+.breadcrumb {
+    .breadcrumb-item {
+      .breadcrumb-link {
+        color: $gray-700;
+      }
+    }
+  }
+  
+  .active-breadcrumb {
+    color: $primary;
+  }
